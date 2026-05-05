@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30 Minutes NJ — Give Students Time to Eat</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --navy-mid: #1a3360;
+    --gold: #c8942a;
+    --gold-light: #e8b94a;
+    --cream: #f8f4ee;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --light-gray: #f1f0ed;
+    --border: #e2ddd5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13, 31, 60, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(200,148,42,0.3);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    color: var(--navy) !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 8rem 6rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(200,148,42,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '30';
+    position: absolute;
+    right: 4rem;
+    bottom: -2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 28rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(200,148,42,0.15);
+    border: 1px solid rgba(200,148,42,0.4);
+    color: var(--gold-light);
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.875rem 2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(200,148,42,0.3);
+  }
+
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 0.875rem 2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 3rem;
+    right: 6rem;
+    display: flex;
+    gap: 3rem;
+    animation: fadeUp 0.8s ease 0.4s both;
+  }
+
+  .stat {
+    text-align: right;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.25rem;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 6rem; }
+
+  .section-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--gray);
+    max-width: 560px;
+    font-weight: 300;
+    margin-bottom: 3rem;
+  }
+
+  /* WHY */
+  #why { background: var(--white); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 3rem;
+    background: var(--border);
+    border: 2px solid var(--border);
+  }
+
+  .why-grid .why-card:last-child {
+    grid-column: span 1;
+  }
+
+  .why-card {
+    background: var(--white);
+    padding: 2.5rem;
+    transition: background 0.2s;
+  }
+
+  .why-card:hover { background: var(--cream); }
+
+  .why-icon {
+    width: 48px; height: 48px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .why-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .why-card p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .why-card cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  /* PETITION */
+  #petition {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #petition::before {
+    content: '';
+    position: absolute;
+    bottom: -300px; left: -300px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(200,148,42,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  #petition .section-title { color: var(--white); }
+  #petition .section-subtitle { color: rgba(255,255,255,0.55); }
+  #petition .section-tag { color: var(--gold-light); }
+
+  .petition-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .petition-count {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .count-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .count-label {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+  }
+
+  .progress-bar {
+    margin-top: 1.25rem;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    width: 34%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 2px;
+    animation: fillBar 1.5s ease 0.5s both;
+  }
+
+  @keyframes fillBar {
+    from { width: 0; }
+    to { width: 34%; }
+  }
+
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .petition-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .form-group select option { background: var(--navy-mid); color: var(--white); }
+
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .form-check input[type="checkbox"] {
+    width: 16px; height: 16px;
+    margin-top: 2px;
+    accent-color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .form-check label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  .sign-btn {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+    margin-top: 0.5rem;
+  }
+
+  .sign-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(200,148,42,0.3);
+  }
+
+  .recent-signers {
+    margin-top: 1.5rem;
+  }
+
+  .recent-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+
+  .signer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .signer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .signer-dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  /* RESEARCH */
+  #research { background: var(--cream); }
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .research-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .research-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(13,31,60,0.08);
+  }
+
+  .research-card.featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    background: var(--navy);
+    color: var(--white);
+    border-color: transparent;
+  }
+
+  .research-card.featured h3 { color: var(--white); }
+  .research-card.featured p { color: rgba(255,255,255,0.6); }
+
+  .research-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .research-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--navy);
+  }
+
+  .research-card p {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .research-source {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    width: 100%;
+  }
+
+  .research-card.featured .research-source {
+    color: var(--gold-light);
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  /* LEGISLATORS */
+  #legislators { background: var(--white); }
+
+  .leg-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .district-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .district-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .district-card:hover { border-color: var(--gold); }
+
+  .district-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .district-card .role {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+  }
+
+  .district-card .contact-links {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .contact-link {
+    font-size: 0.8rem;
+    color: var(--navy);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .template-box {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .template-header {
+    background: var(--navy);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .template-header span {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+  }
+
+  .copy-btn {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 0.35rem 0.9rem;
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .copy-btn:hover { background: var(--gold-light); }
+
+  .template-body {
+    padding: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--navy);
+    line-height: 1.8;
+    white-space: pre-line;
+  }
+
+  .cite-link {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--gold);
+    text-decoration: none;
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    transition: color 0.2s;
+  }
+
+  .cite-link:hover { color: var(--navy); text-decoration: underline; }
+
+  a.research-source {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+    width: 100%;
+    transition: color 0.2s;
+  }
+
+  a.research-source:hover { text-decoration: underline; }
+
+  .research-card.featured a.research-source {
+    color: var(--gold-light);
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  /* NEWS */
+  #news { background: var(--cream); }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .news-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .news-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(13,31,60,0.08);
+  }
+
+  .news-img {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+  }
+
+  .news-body { padding: 1.25rem; }
+
+  .news-date {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .news-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .news-card p {
+    font-size: 0.82rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 3rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-text {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
+    max-width: 400px;
+    text-align: center;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold-light); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* SUCCESS MESSAGE */
+  .success-msg {
+    display: none;
+    background: rgba(200,148,42,0.15);
+    border: 1px solid rgba(200,148,42,0.4);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    color: var(--gold-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  /* LAW SECTION */
+  #law { background: var(--white); }
+
+  .law-block {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .law-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--navy);
+    text-align: center;
+    padding: 3rem 4rem;
+    background: var(--cream);
+    border-left: 4px solid var(--gold);
+    border-right: 4px solid var(--gold);
+    border-radius: 4px;
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .law-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: -1rem;
+    left: 2rem;
+    font-size: 6rem;
+    color: var(--gold);
+    opacity: 0.2;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+
+  .law-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .law-meta-item {
+    background: var(--white);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .law-meta-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .law-meta-val {
+    font-size: 0.875rem;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    section { padding: 4rem 2rem; }
+    .hero { padding: 6rem 2rem 4rem; }
+    .hero::after { display: none; }
+    .hero-stats { position: static; margin-top: 3rem; justify-content: flex-start; }
+    .law-meta { grid-template-columns: 1fr; }
+    .law-quote { padding: 2rem 1.5rem; }
+    .why-grid { grid-template-columns: 1fr; }
+    .petition-layout { grid-template-columns: 1fr; }
+    .research-grid { grid-template-columns: 1fr; }
+    .research-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    .leg-layout { grid-template-columns: 1fr; }
+    .news-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 2rem; }
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links li:not(:last-child) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>30</span> Minutes NJ</div>
+  <ul class="nav-links">
+    <li><a href="#why">Why It Matters</a></li>
+    <li><a href="#law">The Law</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#news">Updates</a></li>
+    <li><a href="https://www.change.org" target="_blank" class="nav-cta">Sign the Petition</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-tag">🥗 New Jersey Student Advocacy</div>
+  <h1>Every student deserves <em>30 minutes</em> to eat.</h1>
+  <p>New Jersey has no statewide minimum lunch period. Students across the state are eating in as few as 15 minutes — rushed, stressed, and underfueled. We're changing that.</p>
+  <div class="hero-buttons">
+    <a href="https://www.change.org" target="_blank" class="btn-primary">Sign the Petition →</a>
+    <a href="#why" class="btn-outline">Learn Why It Matters</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">600+</div>
+      <div class="stat-label">NJ School Districts</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">State Minimum (minutes)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">30</div>
+      <div class="stat-label">Minutes We're Fighting For</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="fade-in">
+    <div class="section-tag">The Problem</div>
+    <h2 class="section-title">A rushed lunch isn't really lunch at all.</h2>
+    <p class="section-subtitle">When students have only 10–15 minutes to eat after waiting in line, the consequences extend far beyond the cafeteria.</p>
+  </div>
+  <div class="why-grid fade-in">
+    <div class="why-card">
+      <div class="why-icon">🧠</div>
+      <h3>Academic Performance</h3>
+      <p>Adequate nutrition directly fuels cognitive function. Students who eat full meals show improved focus, memory retention, and classroom engagement throughout the afternoon.</p>
+      <a href="https://frac.org/blog/school-meal-participation-contributes-positive-mental-health-outcomes" target="_blank" class="cite-link">— FRAC: School Meals & Academic Outcomes</a>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🥗</div>
+      <h3>Food Waste & Nutrition</h3>
+      <p>Students with less than 20 minutes to eat consume 13% less of their entrée, 12% less vegetables, and 10% less milk than students with at least 25 minutes — and waste significantly more food.</p>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4698073/" target="_blank" class="cite-link">— Cohen et al., Journal of the Academy of Nutrition and Dietetics, 2016</a>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">😌</div>
+      <h3>Mental Health & Stress</h3>
+      <p>Food insecurity and rushed meals are linked to elevated anxiety, irritability, and reduced social engagement. Children need adequate mealtime to decompress and connect with peers.</p>
+      <a href="https://frac.org/blog/school-meal-participation-contributes-positive-mental-health-outcomes" target="_blank" class="cite-link">— FRAC: School Meals & Mental Health</a>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚖️</div>
+      <h3>Equity Issues</h3>
+      <p>Nearly 30 million children rely on the National School Lunch Program daily. For low-income students, school lunch is often their most nutritious meal — a short period means they lose the most.</p>
+      <a href="https://frac.org/programs/national-school-lunch-program/benefits-school-lunch" target="_blank" class="cite-link">— FRAC: Benefits of School Lunch</a>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏃</div>
+      <h3>Physical Health</h3>
+      <p>Eating too quickly is linked to poor digestion, weight gain, and metabolic risk. It takes roughly 20 minutes for the body to signal fullness — students eating in 10 minutes never get that signal.</p>
+      <a href="https://www.nm.org/healthbeat/healthy-tips/nutrition/quick-dose-is-eating-too-fast-unhealthy" target="_blank" class="cite-link">— Northwestern Medicine</a>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📋</div>
+      <h3>No Federal Minimum Exists</h3>
+      <p>There is no federal law requiring a minimum school lunch period — not even one minute. The CDC recommends 30 minutes total so students have 20 minutes of actual seated eating time, but schools face no legal obligation to follow it.</p>
+      <a href="https://archive.cdc.gov/www_cdc_gov/healthyschools/nutrition/school_lunch.htm" target="_blank" class="cite-link">— CDC: Making Time for School Lunch</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="fade-in">
+    <div class="section-tag">The Evidence</div>
+    <h2 class="section-title">The research is clear.</h2>
+    <p class="section-subtitle">Decades of peer-reviewed studies support a minimum 30-minute seated lunch period for K–12 students.</p>
+  </div>
+  <div class="research-grid fade-in">
+    <div class="research-card featured">
+      <div>
+        <div class="research-num">13%</div>
+        <h3>Less entrée consumed with under 20 minutes to eat</h3>
+        <p>A Harvard study of 1,001 students found that those with less than 20 minutes consumed 13% less of their entrée, 12% less vegetables, and 10% less milk than students with at least 25 minutes — and were significantly less likely to select fruit.</p>
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4698073/" target="_blank" class="research-source">Cohen et al. — Journal of the Academy of Nutrition and Dietetics, 2016 →</a>
+      </div>
+      <div>
+        <p style="font-size:1.1rem; color:rgba(255,255,255,0.7); line-height:1.8; font-style:italic;">"Many children, especially those from low-income families, rely on school meals for up to half their daily energy intake — so it is essential that we give students a sufficient amount of time to eat."</p>
+        <p style="font-size:0.8rem; color:rgba(255,255,255,0.4); margin-top:0.75rem;">— Juliana Cohen, ScD, Harvard T.H. Chan School of Public Health</p>
+        <a href="https://news.harvard.edu/gazette/story/2015/09/short-lunch-periods-dont-serve-students-needs/" target="_blank" style="font-size:0.72rem; color:var(--gold-light); text-decoration:none; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; margin-top:0.5rem; display:inline-block;">View Source — Harvard Gazette, 2015 →</a>
+      </div>
+    </div>
+    <div class="research-card">
+      <div class="research-num">30 min</div>
+      <h3>CDC Recommended Lunch Period</h3>
+      <p>The CDC recommends students have at least 20 minutes of <em>seated</em> eating time after receiving their meal. Since line wait time is not included, a total period of 30 minutes is the functional minimum the CDC supports.</p>
+      <a href="https://archive.cdc.gov/www_cdc_gov/healthyschools/nutrition/school_lunch.htm" target="_blank" class="research-source">CDC: Making Time for School Lunch →</a>
+    </div>
+    <div class="research-card">
+      <div class="research-num">1.3M+</div>
+      <h3>NJ Students Affected</h3>
+      <p>Over 1.3 million students are enrolled in New Jersey public schools — none of them protected by a statewide minimum lunch period law. Every one of them is subject to whatever their district decides, with no floor.</p>
+      <a href="https://ballotpedia.org/Public_education_in_New_Jersey" target="_blank" class="research-source">Ballotpedia — NJ Public Education Data →</a>
+    </div>
+    <div class="research-card">
+      <div class="research-num">20 min</div>
+      <h3>Time for Fullness Signals to Register</h3>
+      <p>Northwestern Medicine researchers note that it takes approximately 20 minutes for the body's hormones to signal fullness. Students eating in 10–15 minutes routinely miss this window, contributing to overeating and metabolic risk.</p>
+      <a href="https://www.nm.org/healthbeat/healthy-tips/nutrition/quick-dose-is-eating-too-fast-unhealthy" target="_blank" class="research-source">Northwestern Medicine →</a>
+    </div>
+    <div class="research-card">
+      <div class="research-num">2022</div>
+      <h3>NJ S571 — A Precedent</h3>
+      <p>A bipartisan bill (S571) was introduced in NJ in 2022 requiring 20 seated minutes. It was referred to the Senate Education Committee but never advanced. We're picking up where it left off — and going further.</p>
+      <a href="https://www.njleg.state.nj.us/bill-search/2022/S571" target="_blank" class="research-source">NJ Legislature, S571 →</a>
+    </div>
+    <div class="research-card" style="grid-column: span 2;">
+      <div class="research-num">2023</div>
+      <h3>Other States Have Started — But Not Gone Far Enough</h3>
+      <p style="font-size:0.875rem; color:var(--gray); line-height:1.7; margin-bottom:1rem;">New Mexico enacted the strongest law to date in 2023, requiring 20 minutes of seated lunch time for K–5 students. Minnesota and South Carolina introduced similar bills but both stalled. No state has enacted a 30-minute total period standard — NJ's proposed law would be the most protective in the country.</p>
+      <p style="font-size:0.875rem; color:var(--gray); line-height:1.7;">But laws requiring "seated" time are nearly impossible to enforce — who decides when a student is officially "seated"? Schools can game the definition. A requirement for 30 total minutes from the bell is objective, observable, and enforceable. That's why our proposed law sets a clear 30-minute floor with no ambiguity.</p>
+      <a href="https://nmlegis.gov/Legislation/Legislation?chamber=S&legType=B&legNo=4&year=23" target="_blank" class="research-source">NM SB 4, 2023 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROPOSED LAW -->
+<section id="law">
+  <div class="fade-in" style="text-align:center; max-width: 800px; margin: 0 auto;">
+    <div class="section-tag">Our Proposed Legislation</div>
+    <h2 class="section-title" style="max-width:100%;">The law we're fighting for.</h2>
+    <p class="section-subtitle" style="max-width:100%; margin: 0 auto 3rem;">Drafted by student advocates and modeled after existing New Jersey child labor protections, this is the language we are asking the Legislature to adopt.</p>
+  </div>
+  <div class="fade-in law-block">
+    <div class="law-quote">
+      "No student under eighteen years of age enrolled in a school other than an institution for higher education shall be required to attend instruction for more than five hours continuously without an interval of at least thirty minutes for a lunch period, and no period of less than thirty minutes shall be deemed to be a fit lunch period for students."
+    </div>
+    <div class="law-meta">
+      <div class="law-meta-item">
+        <div class="law-meta-label">Modeled After</div>
+        <div class="law-meta-val">NJ Child Labor Law — existing protections for workers under 18</div>
+      </div>
+      <div class="law-meta-item">
+        <div class="law-meta-label">Applies To</div>
+        <div class="law-meta-val">All K–12 public school students in New Jersey</div>
+      </div>
+      <div class="law-meta-item">
+        <div class="law-meta-label">Minimum Standard</div>
+        <div class="law-meta-val">30 minutes — no exceptions, no ambiguity</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="fade-in">
+    <div class="section-tag">Campaign Updates</div>
+    <h2 class="section-title">Latest news & progress.</h2>
+  </div>
+  <div class="news-grid fade-in">
+    <div class="news-card" style="display:flex; align-items:center; justify-content:center; min-height:220px; background:var(--white); border: 1px dashed var(--border);">
+      <div style="text-align:center; padding:2rem; color:var(--gray);">
+        <div style="font-size:1.5rem; margin-bottom:0.5rem;">📰</div>
+        <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Coming Soon</div>
+        <p style="font-size:0.85rem; line-height:1.6;">Campaign updates will appear here as the effort develops.</p>
+      </div>
+    </div>
+  </div>
+</section>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span>30</span> Minutes NJ</div>
+  <div class="footer-text">A student-led advocacy effort to establish a 30-minute minimum lunch period for all New Jersey public school students.</div>
+  <div class="footer-links">
+    <a href="https://www.change.org" target="_blank">Sign Petition</a>
+    <a href="#research">Research</a>
+    <a href="#law">The Law</a>
+    <a href="mailto:contact30minsnj@gmail.com">Email Us</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Smooth nav link behavior
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
