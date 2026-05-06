@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>30 Minutes NJ — Give Students Time to Eat</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230d1f3c'/><text y='75' x='50' text-anchor='middle' font-size='52' font-family='Georgia,serif' font-weight='900' fill='%23c8942a' font-style='normal' letter-spacing='-2'>30</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -941,28 +942,118 @@
     line-height: 1.4;
   }
 
+  /* CONTACT OVERLAY */
+  .contact-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(13,31,60,0.85);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-overlay.active { display: flex; }
+
+  .contact-modal {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 3rem;
+    max-width: 480px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: fadeUp 0.3s ease both;
+  }
+
+  .contact-modal h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-modal p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-email {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 0.875rem 1.5rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-email:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .contact-close {
+    position: absolute;
+    top: 1rem; right: 1.25rem;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--gray);
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .contact-close:hover { color: var(--navy); }
+
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    section { padding: 4rem 2rem; }
-    .hero { padding: 6rem 2rem 4rem; }
+    section { padding: 3rem 1.25rem; }
+    .hero { padding: 5.5rem 1.25rem 3rem; }
+    .hero h1 { font-size: 2.4rem; }
+    .hero p { font-size: 1rem; }
     .hero::after { display: none; }
-    .hero-stats { position: static; margin-top: 3rem; justify-content: flex-start; }
+    .hero-stats { position: static; margin-top: 2.5rem; justify-content: flex-start; gap: 2rem; flex-wrap: wrap; }
+    .stat-num { font-size: 2rem; }
     .law-meta { grid-template-columns: 1fr; }
-    .law-quote { padding: 2rem 1.5rem; }
+    .law-quote { padding: 1.75rem 1.25rem; font-size: 1.1rem; }
     .why-grid { grid-template-columns: 1fr; }
-    .petition-layout { grid-template-columns: 1fr; }
     .research-grid { grid-template-columns: 1fr; }
     .research-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
-    .leg-layout { grid-template-columns: 1fr; }
+    .research-card[style*="span 2"] { grid-column: span 1 !important; }
     .news-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 2rem; }
+    .section-title { font-size: 1.8rem; }
+    .research-num { font-size: 2.2rem; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 1.25rem; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
     nav { padding: 0 1.25rem; }
-    .nav-links { gap: 1rem; }
+    .nav-links { gap: 0.75rem; }
     .nav-links li:not(:last-child) { display: none; }
+    .hero-buttons { flex-direction: column; gap: 0.75rem; }
+    .hero-buttons a { text-align: center; }
   }
 </style>
 </head>
 <body>
+
+<!-- CONTACT OVERLAY -->
+<div class="contact-overlay" id="contactOverlay">
+  <div class="contact-modal">
+    <button class="contact-close" onclick="closeContact()">✕</button>
+    <h2>Contact Us</h2>
+    <p>Have questions, want to get involved, or represent a school or organization? We'd love to hear from you.</p>
+    <a href="mailto:contact30minsnj@gmail.com" class="contact-email">📧 contact30minsnj@gmail.com</a>
+    <br>
+    <p style="font-size:0.8rem; color:var(--gray);">We are student advocates based in Hopewell, NJ.<br>We read every message.</p>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -972,7 +1063,8 @@
     <li><a href="#law">The Law</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#news">Updates</a></li>
-    <li><a href="https://www.change.org" target="_blank" class="nav-cta">Sign the Petition</a></li>
+    <li><a href="#" onclick="openContact(); return false;">Contact Us</a></li>
+    <li><a href="https://c.org/6DrS5q6GPp" target="_blank" class="nav-cta">Sign the Petition</a></li>
   </ul>
 </nav>
 
@@ -982,7 +1074,7 @@
   <h1>Every student deserves <em>30 minutes</em> to eat.</h1>
   <p>New Jersey has no statewide minimum lunch period. Students across the state are eating in as few as 15 minutes — rushed, stressed, and underfueled. We're changing that.</p>
   <div class="hero-buttons">
-    <a href="https://www.change.org" target="_blank" class="btn-primary">Sign the Petition →</a>
+    <a href="https://c.org/6DrS5q6GPp" target="_blank" class="btn-primary">Sign the Petition →</a>
     <a href="#why" class="btn-outline">Learn Why It Matters</a>
   </div>
   <div class="hero-stats">
@@ -1156,10 +1248,10 @@
   <div class="footer-logo"><span>30</span> Minutes NJ</div>
   <div class="footer-text">A student-led advocacy effort to establish a 30-minute minimum lunch period for all New Jersey public school students.</div>
   <div class="footer-links">
-    <a href="https://www.change.org" target="_blank">Sign Petition</a>
+    <a href="https://c.org/6DrS5q6GPp" target="_blank">Sign Petition</a>
     <a href="#research">Research</a>
     <a href="#law">The Law</a>
-    <a href="mailto:contact30minsnj@gmail.com">Email Us</a>
+    <a href="#" onclick="openContact(); return false;">Contact Us</a>
   </div>
 </footer>
 
@@ -1175,7 +1267,22 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Smooth nav link behavior
+  // Contact overlay
+  function openContact() {
+    document.getElementById('contactOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeContact() {
+    document.getElementById('contactOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('contactOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeContact();
+  });
+
+  // Scroll animations
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
