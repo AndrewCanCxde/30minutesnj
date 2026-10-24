@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — 30 Minutes NJ</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230d1f3c'/><text y='75' x='50' text-anchor='middle' font-size='52' font-family='Georgia,serif' font-weight='900' fill='%23c8942a' letter-spacing='-2'>30</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --navy-mid: #1a3360;
+    --gold: #c8942a;
+    --gold-light: #e8b94a;
+    --cream: #f8f4ee;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --border: #e2ddd5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    line-height: 1.6;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13, 31, 60, 0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(200,148,42,0.3);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .about-hero {
+    background: var(--navy);
+    padding: 9rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(200,148,42,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .about-tag {
+    display: inline-block;
+    background: rgba(200,148,42,0.15);
+    border: 1px solid rgba(200,148,42,0.4);
+    color: var(--gold-light);
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .about-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .about-hero h1 em { font-style: normal; color: var(--gold); }
+
+  .about-body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+
+  .joint-photo {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto 3rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(13,31,60,0.18);
+  }
+  .joint-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .about-text {
+    font-size: 1.05rem;
+    color: #333;
+    text-align: center;
+  }
+  .about-text p { margin-bottom: 1.25rem; }
+  .about-text .placeholder {
+    color: var(--gray);
+    font-style: italic;
+  }
+
+  .advisor-note {
+    text-align: center;
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 2.5rem;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  footer {
+    background: var(--navy);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  footer .footer-logo span { color: var(--gold); }
+  footer p { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
+
+  @media (max-width: 600px) {
+    .about-hero { padding: 7rem 1.25rem 3rem; }
+    .about-body { padding: 3rem 1.25rem 4rem; }
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 0.9rem; }
+    .nav-links li:nth-child(1),
+    .nav-links li:nth-child(2) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>30</span> Minutes NJ</a>
+  <ul class="nav-links">
+    <li><a href="index.html#why">Why It Matters</a></li>
+    <li><a href="index.html#research">Research</a></li>
+    <li><a href="index.html#news">Our Progress</a></li>
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+
+<section class="about-hero">
+  <div class="about-tag">Who We Are</div>
+  <h1>The students behind <em>30 Minutes NJ</em></h1>
+</section>
+
+<section class="about-body">
+  <div class="joint-photo">
+    <img src="aarya-andrew.jpg" alt="Aarya Joshi and Andrew Shah">
+  </div>
+  <div class="about-text">
+    <p>Aarya and Andrew are both juniors at Hopewell Valley Central High School. The idea for 30 Minutes NJ started close to home, right in their own lunch period. At their school, a block called Lab cuts lunch down from 40 minutes to just 15 on days when students have a science period before or after lunch. That leaves barely enough time to eat. They felt that squeeze themselves, and they knew classmates who dealt with the same thing, so they started looking into it more seriously.</p>
+    <p>What they found surprised them. This isn't just a Hopewell Valley problem. Short lunch periods are a widespread issue across New Jersey, and no law, state or federal, sets any minimum amount of time students must be given to eat. The research was just as striking. Study after study shows that lunch periods under 30 minutes are linked to worse nutrition, more food waste, and real effects on health and focus. Students can't perform at their best in the classroom if they aren't given enough time to eat beforehand.</p>
+    <p>That mix of a problem they lived firsthand, evidence it was bigger than their own school, and a total absence of legal protection is what pushed Aarya and Andrew to stop treating it as something to complain about and start treating it as something to fix.</p>
+  </div>
+  <div class="advisor-note">
+    The campaign is advised by Paul Anzano. We're grateful to the legislators, staff, and advocates who have supported this effort along the way.
+  </div>
+  <div style="text-align:center;">
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span>30</span> Minutes NJ</div>
+  <p>A student-led advocacy effort to establish a 30-minute minimum lunch period for all New Jersey public school students.</p>
+</footer>
+
+</body>
+</html>
