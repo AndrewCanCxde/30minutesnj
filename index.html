@@ -249,6 +249,7 @@
     font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
+    letter-spacing: 0.02em;
     color: var(--navy);
     line-height: 1.15;
     max-width: 600px;
@@ -1064,7 +1065,8 @@
     <li><a href="#research">Research</a></li>
     <li><a href="#news">Updates</a></li>
     <li><a href="#" onclick="openContact(); return false;">Contact Us</a></li>
-    <li><a href="https://c.org/6DrS5q6GPp" target="_blank" class="nav-cta">Sign the Petition</a></li>
+    <li><a href="about.html" style="color: rgba(255,255,255,0.65); font-size: 0.75rem; font-weight: 500; text-transform: none; letter-spacing: 0;">About Us</a></li>
+    <li><a href="#news" class="nav-cta">Our Progress</a></li>
   </ul>
 </nav>
 
@@ -1074,9 +1076,9 @@
   <h1>Every student deserves <em>30 minutes</em> to eat.</h1>
   <p>New Jersey has no statewide minimum lunch period. Students across the state are eating in as few as 15 minutes — rushed, stressed, and underfueled. We're changing that.</p>
   <div class="hero-buttons">
-    <a href="https://c.org/6DrS5q6GPp" target="_blank" class="btn-primary">Sign the Petition →</a>
-    <a href="#why" class="btn-outline">Learn Why It Matters</a>
+    <a href="#news" class="btn-primary">See Our Progress →</a>
   </div>
+  <p style="margin-top: 1rem;"><a href="https://c.org/6DrS5q6GPp" target="_blank" style="color: rgba(255,255,255,0.5); font-size: 0.85rem; text-decoration: underline;">Sign our petition</a></p>
   <div class="hero-stats">
     <div class="stat">
       <div class="stat-num">600+</div>
@@ -1231,15 +1233,22 @@
     <h2 class="section-title">Latest news & progress.</h2>
   </div>
   <div class="news-grid fade-in">
-    <div class="news-card" style="display:flex; align-items:center; justify-content:center; min-height:220px; background:var(--white); border: 1px dashed var(--border);">
-      <div style="text-align:center; padding:2rem; color:var(--gray);">
-        <div style="font-size:1.5rem; margin-bottom:0.5rem;">📰</div>
-        <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Coming Soon</div>
-        <p style="font-size:0.85rem; line-height:1.6;">Campaign updates will appear here as the effort develops.</p>
+    <div class="news-card">
+      <div class="news-img" style="background:#f0f7ff;">🏛️</div>
+      <div class="news-body">
+        <div class="news-date">Senate Bill S4964 · Pending Introduction</div>
+        <h3>Senate sponsor secured</h3>
+        <p>Senator Vin Gopal, Chair of the Senate Education Committee, is the primary sponsor of S4964, establishing a statewide 30-minute minimum lunch period.</p>
       </div>
     </div>
-  </div>
-</section>
+    <div class="news-card">
+      <div class="news-img" style="background:#f0fff4;">🤝</div>
+      <div class="news-body">
+        <div class="news-date">Assembly Bill A5736 · Pending Introduction</div>
+        <h3>Assembly companion secured</h3>
+        <p>Assemblywoman Verlina Reynolds-Jackson is the primary sponsor of A5736, the identical companion bill, allowing both chambers to move in parallel once introduced.</p>
+      </div>
+    </div>
   </div>
 </section>
 
